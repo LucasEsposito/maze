@@ -1,0 +1,9 @@
+language: node_js
+
+sudo: required
+
+before_script: sudo npm install -g grunt grunt-cli
+    
+script: grunt --verbose --force
+
+after_succes: grunt coveralls
