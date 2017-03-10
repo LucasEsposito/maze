@@ -3,11 +3,11 @@ language: node_js
 sudo: required
 
 before_script:
-    sudo $(which npm) install -g grunt
-    sudo $(which npm) install -g grunt-cli
+    - sudo $(which npm) install -g grunt
+    - sudo $(which npm) install -g grunt-cli
     
 script:
-    grunt --verbose --force
+    - grunt --verbose --force
 
 after_succes:
-    grunt coveralls
+    - grunt coveralls
