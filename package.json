@@ -4,7 +4,7 @@
   "description": "[En progreso]",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./test/* --recursive --use_strict"
+    "test": "./node_modules/.bin/mocha ./test/* --recursive --use_strict --no-colors"
   },
   "repository": {
     "type": "git",

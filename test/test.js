@@ -1,10 +1,12 @@
 "use strict";
-let assert = require('assert');
+let assert = require('chai').assert;
+
+let Block = require('../src/block.js');
 // let losJSHechosPorMi = require('../');
 
 
 describe('TODO: remove this test', function(){
-    it('1 equals 1', function(){
-        assert.equal(1,1);
+    it('TODO: remove this test', function(){
+        assert(new Block().testMethod());
     });
 });
