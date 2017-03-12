@@ -17,10 +17,10 @@ module.exports = function(grunt){
             }
         }
     });
-    
+
     grunt.loadNpmTasks("grunt-coveralls");
     grunt.loadNpmTasks("grunt-mocha-istanbul");
-    
-    grunt.registerTask("default", "mocha_istanbul");
-    grunt.registerTask("mocha", "mocha_istanbul");
+
+    grunt.registerTask("coveralls", ["mocha_istanbul:coveralls"]);
+    grunt.registerTask("mocha", ["mocha_istanbul:coverage"]);
 };

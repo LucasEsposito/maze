@@ -2,7 +2,6 @@
 let assert = require('chai').assert;
 
 let Block = require('../src/block.js');
-// let losJSHechosPorMi = require('../');
 
 
 describe('TODO: remove this test', function(){
