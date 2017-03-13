@@ -6,7 +6,7 @@ let build = require('../src/utils/levelBuilder.js'),
 let assert = require('chai').assert;
 
 function createExample_1(){
-  return build(1,"/home/lucas/workspace/maze/test/resources/levels/example_1.json");
+  return build(1,"/test/resources/levels/example_1.json");
 }
 
 describe('Level Builder Suite', function(){

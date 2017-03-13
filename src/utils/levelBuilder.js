@@ -3,7 +3,8 @@ let fs = require('fs'),
     jsonString,
     Block = require('../block.js'),
     Position = require('../position.js'),
-    Level = require('../level.js');
+    Level = require('../level.js'),
+    relativeToAbsolutePath = require('./relativePaths.js');
 
 
 
@@ -23,8 +24,15 @@ function makeLevel(levelNumber){
   return level;
 }
 
-function jsonToLevel(levelNumber, path){ //if path=="" create one based on levelNumber
-  jsonString = JSON.parse(fs.readFileSync(!!path ? path : "./levels/"+levelNumber+".json"),"utf8");
+function jsonToLevel(levelNumber, relativePath=""){
+  let absolutePath;
+  console.log(relativePath);
+  if(relativePath!=""){
+    absolutePath = relativeToAbsolutePath(relativePath);
+  }else{
+    absolutePath = relativeToAbsolutePath("../../static/levels/"+levelNumber+".json");
+  }
+  jsonString = JSON.parse(fs.readFileSync(absolutePath),"utf8");
 }
 
 function number(){
