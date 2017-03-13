@@ -31,10 +31,6 @@ module.exports = class Position {
   }
 
   next(width, height){
-    this.x < width ? this.toEast() : this.toSouth().resetX();
-  }
-
-  copy(){
-    return new Position(this.x, this.y);
+    return new Position(this.x < width ? this.x+1 : 0, this.x < width ? this.y : this.y+1);
   }
 }

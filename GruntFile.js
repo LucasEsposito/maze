@@ -2,10 +2,7 @@ module.exports = function(grunt){
     grunt.initConfig({
         mocha_istanbul: {
             coverage: {
-                src: 'test',
-                options: {
-                    mask: '*.spec.js'
-                }
+                src: 'test'
             },
             coveralls: {
                 src: 'test',
@@ -19,10 +16,10 @@ module.exports = function(grunt){
             }
         },
     });
- 
+
     grunt.loadNpmTasks('grunt-coveralls');
     grunt.loadNpmTasks('grunt-mocha-istanbul');
- 
+
     grunt.registerTask('default', 'mocha_istanbul:coveralls');
-    grunt.registerTask('mocha', 'mocha_istanbul:coverage');
+    grunt.registerTask('coveralls', 'mocha_istanbul:coverage');
 };

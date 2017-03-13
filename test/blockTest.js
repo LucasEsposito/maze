@@ -1,7 +1,8 @@
 "use strict";
+var Block = require('../src/block.js');
 let assert = require('chai').assert;
 
-let block = require('../src/block.js');
+
 
 
 describe('TODO: remove this test', function(){

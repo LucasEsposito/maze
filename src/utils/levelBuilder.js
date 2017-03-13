@@ -1,25 +1,30 @@
 "use strict";
 let fs = require('fs'),
     jsonString,
-    block = require('../block.js'),
-    position = require('../position.js'),
-    level = require('../level.js');
+    Block = require('../block.js'),
+    Position = require('../position.js'),
+    Level = require('../level.js');
 
 
-module.exports = function make(levelNumber){
+
+module.exports = function build(levelNumber, path = ""){
+  jsonToLevel(levelNumber, path);
+  return makeLevel(levelNumber);
+}
+
+
+function makeLevel(levelNumber){
   let level = new Level();
   level.number = levelNumber;
   level.width = width();
-  level.width = height();
+  level.height = height();
   level.time = time();
   level.map = map();
   return level;
 }
 
-
-
-function jsonLevel(levelNumber){
-  jsonString = JSON.parse(fs.readFileSync("./levels/"+levelNumber+".json"),"utf8");
+function jsonToLevel(levelNumber, path){ //if path=="" create one based on levelNumber
+  jsonString = JSON.parse(fs.readFileSync(!!path ? path : "./levels/"+levelNumber+".json"),"utf8");
 }
 
 function number(){
@@ -43,10 +48,11 @@ function time(){
 }
 
 function map(){
-  let auxiliaryPosition = new Position(-1,0);
+  let auxiliaryPosition = new Position(-1,0),
       map = new Map(); //<Position, Block>
-  for(block in blocks()){
-    map.put(auxiliaryPosition.next( width(), height() ).copy(),
-            block);
+  for(let block_ in blocks()){
+    auxiliaryPosition = auxiliaryPosition.next(width(),height());
+    map.set(auxiliaryPosition, block_);
   }
+  return map;
 }
