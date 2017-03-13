@@ -6,6 +6,15 @@ module.exports = class Position {
     this.y = y;
   }
 
+  toString(){
+    return String(this.x)+'|'+String(this.y);
+  }
+
+  static fromString(string){
+    let splited = string.split("|");
+    return new Position(splited[0],splited[1]);
+  }
+
   toNorth(){
     this.y++;
   }
@@ -31,6 +40,6 @@ module.exports = class Position {
   }
 
   next(width, height){
-    return new Position(this.x < width ? this.x+1 : 0, this.x < width ? this.y : this.y+1);
+    return new Position(this.x < width-1 ? this.x+1 : 0, this.x < width-1 ? this.y : this.y+1);
   }
 }

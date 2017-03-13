@@ -26,7 +26,6 @@ function makeLevel(levelNumber){
 
 function jsonToLevel(levelNumber, relativePath=""){
   let absolutePath;
-  console.log(relativePath);
   if(relativePath!=""){
     absolutePath = relativeToAbsolutePath(relativePath);
   }else{
@@ -57,10 +56,11 @@ function time(){
 
 function map(){
   let auxiliaryPosition = new Position(-1,0),
-      map = new Map(); //<Position, Block>
-  for(let block_ in blocks()){
+      map = new Map(), //<Position.toString(), Block>
+      block = blocks();
+  for(let $index in block){
     auxiliaryPosition = auxiliaryPosition.next(width(),height());
-    map.set(auxiliaryPosition, block_);
+    map.set(auxiliaryPosition.toString(), block[$index]);
   }
   return map;
 }

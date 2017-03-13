@@ -11,6 +11,8 @@ function createExample_1(){
 
 describe('Level Builder Suite', function(){
     let exampleLevel = createExample_1();
+    let firstPosition = Position.fromString(exampleLevel.map.keys().next().value);
+    let blockAt_3_2 = exampleLevel.map.get("3|2");
 
     it('example_1 level number is ok', function(){
         assert.equal(exampleLevel.number,1);
@@ -30,5 +32,17 @@ describe('Level Builder Suite', function(){
 
     it('example_1 time is ok', function(){
         assert.equal(exampleLevel.time,120);
+    });
+
+    it('first position: x == 0', function(){
+        assert.equal(firstPosition.x,0);
+    });
+
+    it('first position: y == 0', function(){
+        assert.equal(firstPosition.y,0);
+    });
+
+    it('position x=3, y=2 has block id 8', function(){
+        assert.equal(blockAt_3_2,8);
     });
 });
