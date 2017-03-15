@@ -5,12 +5,8 @@ let build = require('../src/utils/levelBuilder.js'),
     Level = require('../src/level.js');
 let assert = require('chai').assert;
 
-function createExample_1(){
-  return build(1,"/test/resources/levels/example_1.json");
-}
-
 describe('Level Builder Suite', function(){
-    let exampleLevel = createExample_1();
+    let exampleLevel = build(1,"/test/resources/levels/example_1.json");
     let firstPosition = Position.fromString(exampleLevel.map.keys().next().value);
     let blockAt_3_2 = exampleLevel.map.get("3|2");
 

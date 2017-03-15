@@ -1,3 +1,6 @@
+# Dolphin folder properties
+.directory
+
 # Logs
 logs
 *.log
