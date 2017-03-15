@@ -1,5 +1,5 @@
 "use strict";
-let Free = require('./block.js').Free;
+let createFree = require('./utils/blockFactory.js').createFree;
 
 module.exports = class Level {
   constructor(){
@@ -10,14 +10,20 @@ module.exports = class Level {
     this.map = undefined;
   }
 
+  /**
+  * @param {String} position - the position as string: "x|y"
+  */
+  getBlockAt(position){
+    return this.map.get(position);
+  }
+
   move(character, position){
     position = position.toString();
-    let newBlock = map.get(position);
+    let newBlock = this.map.get(position);
     return newBlock.canAccess(character, this, position);
   }
 
   freeBlockAt(position){
-    let x = new Free(0);
-    this.map.set(position, x);
+    this.map.set(position, createFree());
   }
 }

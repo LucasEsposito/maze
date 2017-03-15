@@ -4,7 +4,8 @@ let fs = require('fs'),
     Block = require('../block.js'),
     Position = require('../position.js'),
     Level = require('../level.js'),
-    relativeToAbsolutePath = require('./relativePaths.js');
+    relativeToAbsolutePath = require('./relativePaths.js'),
+    createBlock = require('./blockFactory').createBlock;
 
 
 
@@ -56,11 +57,13 @@ function time(){
 
 function map(){
   let auxiliaryPosition = new Position(-1,0),
-      map = new Map(), //<Position.toString(), Block>
+      auxiliaryBlock,
+      map = new Map(), // <Position.toString(), Block>
       block = blocks();
   for(let $index in block){
     auxiliaryPosition = auxiliaryPosition.next(width(),height());
-    map.set(auxiliaryPosition.toString(), block[$index]);
+    auxiliaryBlock = createBlock(block[$index]);
+    map.set(auxiliaryPosition.toString(), auxiliaryBlock);
   }
   return map;
 }

@@ -2,13 +2,13 @@
   "width": 5,
   "height": 7,
   "blocks": [
-     7,10,99,10,20,
+     3,10,99,10,20,
      1, 1, 1, 1,21,
-     1,10,10, 8, 1,
+     1,10,10, 2, 1,
      1, 1, 1,10, 1,
     10,10, 1, 1, 1,
      1, 1, 1,10,10,
-    10,10, 0,10,10
+    10,10,90,10,10
   ],
   "time": 120,
   "comment": "this map is for testing. The block distribution have no sense."

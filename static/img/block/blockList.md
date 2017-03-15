@@ -2,10 +2,10 @@
 | ID | Block | Notes |
 | --- | --- | --- |
 | 0 | Free |  |
-| 2 | Free: w | Only used in the first level |
-| 3 | Free: A | Only used in the first level |
-| 4 | Free: S | Only used in the first level |
-| 5 | Free: D | Only used in the first level |
+| 1 | Free: w | Only used in the first level |
+| 2 | Free: A | Only used in the first level |
+| 3 | Free: S | Only used in the first level |
+| 4 | Free: D | Only used in the first level |
 | 10 | Wall |  |
 | 20 | Blue key |  |
 | 21 | Black key |  |
@@ -26,8 +26,10 @@
 | 37 | White door |  |
 | 38 | Yellow door |  |
 | 40 | Up-Down block: Up |  |
-| 41 | Up-Down block: Up |  |
+| 41 | Up-Down block: Down |  |
 | 50 | Up-Down button |  |
 | 61 | Teleporter: 1 |  |
 | 62 | Teleporter: 2 |  |
 | 63 | Teleporter: 3 |  |
+| 90 | Start |  |
+| 99 | End |  |

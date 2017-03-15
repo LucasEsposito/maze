@@ -38,7 +38,7 @@ describe('Level Builder Suite', function(){
         assert.equal(firstPosition.y,0);
     });
 
-    it('position x=3, y=2 has block id 8', function(){
-        assert.equal(blockAt_3_2,8);
+    it('position x=3, y=2 has block id 2', function(){
+        assert.equal(blockAt_3_2.id,2);
     });
 });
