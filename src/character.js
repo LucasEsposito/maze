@@ -16,7 +16,6 @@ module.exports = class Character {
   }
 
   usesKey(id){
-    console.log("rrrrrrrrrrrrrrrr");
     if(this._keys[id-20] > 0){
       this.removeKey(id);
       return true;

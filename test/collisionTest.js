@@ -19,6 +19,8 @@ describe('Block Suite', function(){
         key20,
         key21,
         door31,
+        wall,
+        free,
         juanCanAccess20,
         juanCanAccess21;
 
@@ -28,12 +30,22 @@ describe('Block Suite', function(){
       key20 = level.getBlockAt("4|0");
       key21 = level.getBlockAt("4|1");
       door31 = level.getBlockAt("0|5");
+      wall = level.getBlockAt("1|0");
+      free = level.getBlockAt("1|1");
       juanCanAccess20 = key20.canAccess(juan, level, new Position(4,0));
       juanCanAccess21 = key21.canAccess(juan,level, new Position(4,1));
     });
 
-    it('A character can acces to key blocks', function(){
+    it('Characters can\'t acces to walls', function(){
+      assert(!wall.canAccess(juan, level, new Position("1|0")));
+    });
+
+    it('Characters can acces to Keys', function(){
       assert(juanCanAccess21);
+    });
+
+    it('Characters can acces to free blocks', function(){
+      assert(free.canAccess(juan, level, new Position("1|1")));
     });
 
     it('Keys are counted after colliding', function(){
