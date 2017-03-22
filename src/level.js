@@ -26,8 +26,12 @@ module.exports = class Level {
   }
 
   allowMove(character, position){
-    position = position.toString();
-    let newBlock = this.map.get(position);
-    return newBlock.canAccess(character, this, position);
+    if(position.isValid(this.width, this.height)){
+      position = position.toString();
+      let newBlock = this.map.get(position);
+      return newBlock.canAccess(character, this, position);
+    }else{
+      return false;
+    }
   }
 }

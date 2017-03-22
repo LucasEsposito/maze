@@ -29,4 +29,21 @@ module.exports = class Character {
       this.position = position;
     }
   }
+
+  // TODO
+  setControls(){
+    $(document).keypress( function(e){
+      var k = e.keyCode || e.which;
+      switch(k){
+        case 119: //W
+          break;
+        case 100: //D
+          break;
+        case 115: //S
+          break;
+        case 97: //A
+          break;
+      }
+    });
+  }
 }

@@ -4,7 +4,7 @@ let fs = require('fs'),
     Block = require('../block.js'),
     Position = require('../position.js'),
     Level = require('../level.js'),
-    relativeToAbsolutePath = require('./relativePaths.js'),
+    relativeToAbsolutePath = require('./extensions.js').relativeToAbsolutePath,
     createBlock = require('./blockFactory').createBlock;
 
 
@@ -17,12 +17,12 @@ module.exports = function build(levelNumber, path = "", isTimed){
 
 function makeLevel(levelNumber, isTimed){
   let level = new Level();
-  level._number = levelNumber;
-  level._width = width();
-  level._height = height();
-  level._map = map();
-  level._time = time();
-  level._isTimed = isTimed;
+  level.number = levelNumber;
+  level.width = width();
+  level.height = height();
+  level.map = map();
+  level.time = time();
+  level.isTimed = isTimed;
   return level;
 }
 

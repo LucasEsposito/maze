@@ -10,9 +10,6 @@ let build = require('../src/utils/levelBuilder.js'),
 
 
 
-
-
-
 describe('Block Suite', function(){
     let level,
         juan,

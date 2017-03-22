@@ -2,13 +2,8 @@
 let Free = require('../block.js').Free,
     Wall = require('../block.js').Wall,
     Key = require('../block.js').Key,
-    Door = require('../block.js').Door;
-
-Number.prototype.inClosedRange = function(x,y){
-  let min = Math.min(x, y),
-      max = Math.max(x, y);
-  return this >= min && this <= max;
-}
+    Door = require('../block.js').Door,
+    relativePath = require('./extensions.js');
 
 
 module.exports.createBlock = function createBlock(id){
