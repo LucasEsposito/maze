@@ -9,19 +9,20 @@ let fs = require('fs'),
 
 
 
-module.exports = function build(levelNumber, path = ""){
+module.exports = function build(levelNumber, path = "", isTimed){
   jsonToLevel(levelNumber, path);
-  return makeLevel(levelNumber);
+  return makeLevel(levelNumber, isTimed);
 }
 
 
-function makeLevel(levelNumber){
+function makeLevel(levelNumber, isTimed){
   let level = new Level();
-  level.number = levelNumber;
-  level.width = width();
-  level.height = height();
-  level.time = time();
-  level.map = map();
+  level._number = levelNumber;
+  level._width = width();
+  level._height = height();
+  level._map = map();
+  level._time = time();
+  level._isTimed = isTimed;
   return level;
 }
 

@@ -30,7 +30,7 @@ module.exports.createBlock = function createBlock(id){
     case id == 99:
       return new Free(0); //TODO: create Start block and End block.
     default:
-      throw "Invalid block id: "+id+".";
+      throw "Invalid block id: " + id + ".";
   }
 }
 

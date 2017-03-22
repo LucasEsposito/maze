@@ -5,38 +5,15 @@ module.exports = class Position {
     this.x = x;
     this.y = y;
   }
-
-  toString(){
-    return String(this.x)+'|'+String(this.y);
-  }
-
+  
   static fromString(string){
     let splited = string.split("|");
     return new Position(splited[0],splited[1]);
   }
 
-  toNorth(){
-    this.y++;
-  }
 
-  toSouth(){
-    this.y--;
-  }
-
-  toWest(){
-    this.x--;
-  }
-
-  toEast(){
-    this.x++;
-  }
-
-  resetX(){
-    this.x = 0;
-  }
-
-  resetY(){
-    this.y = 0;
+  toString(){
+    return String(this.x)+'|'+String(this.y);
   }
 
   next(width, height){

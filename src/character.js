@@ -3,7 +3,7 @@ let Level = require('./level.js');
 
 module.exports = class Character {
   constructor(startPosition) {
-    this._keys = [0,0,0,0,0,0,0,0,0,0]
+    this._keys = [0,0,0,0,0,0,0,0,0,0] // length = 10
     this.position = startPosition;
   }
 
@@ -25,7 +25,7 @@ module.exports = class Character {
   }
 
   move(position){
-    if(level.move(this,position)){
+    if(level.allowMove(this,position)){
       this.position = position;
     }
   }

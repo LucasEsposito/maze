@@ -3,27 +3,31 @@ let createFree = require('./utils/blockFactory.js').createFree;
 
 module.exports = class Level {
   constructor(){
-    this.number = undefined;
-    this.width = undefined;
-    this.width = undefined;
-    this.time = undefined;
-    this.map = undefined;
+    this.number;
+    this.width;
+    this.height;
+    this.map;
+    this.time;
+    this.isTimed;
   }
 
   /**
-  * @param {String} position - the position as string: "x|y"
+  * @param {String} position - position as string: "x|y"
   */
   getBlockAt(position){
     return this.map.get(position);
   }
 
-  move(character, position){
+  /**
+  * @param {String} position - position as string: "x|y"
+  */
+  freeBlockAt(position){
+    this.map.set(position, createFree());
+  }
+
+  allowMove(character, position){
     position = position.toString();
     let newBlock = this.map.get(position);
     return newBlock.canAccess(character, this, position);
-  }
-
-  freeBlockAt(position){
-    this.map.set(position, createFree());
   }
 }

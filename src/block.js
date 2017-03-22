@@ -7,6 +7,18 @@ class Block { // abstract
   }
 }
 
+class Occupied extends Block { //abstract
+  constructor(id) {
+    super(id);
+    this.walkable = false;
+  }
+
+  canAccess(character, level, position){
+    return false;
+  }
+}
+
+
 
 module.exports.Free = class Free extends Block { // id: 0,1,2,3,4,5
   constructor(id) {
@@ -20,7 +32,9 @@ module.exports.Free = class Free extends Block { // id: 0,1,2,3,4,5
 }
 
 
-class Occupied extends Block { //abstract
+module.exports.Wall = class Wall extends Occupied { // id: 10..19 ?
+  constructor(id) {
+    super(id);class Occupied extends Block { //abstract
   constructor(id) {
     super(id);
     this.walkable = false;
@@ -30,11 +44,6 @@ class Occupied extends Block { //abstract
     return false;
   }
 }
-
-
-module.exports.Wall = class Wall extends Occupied { // id: 10..19 ?
-  constructor(id) {
-    super(id);
   }
 }
 
