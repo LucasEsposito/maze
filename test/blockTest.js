@@ -18,27 +18,39 @@ describe('Block Suite', function(){
         juan,
         key20,
         key21,
+        door31,
         juanCanAccess20,
         juanCanAccess21;
-
 
     beforeEach(function(){
       level = build(1,"/test/resources/levels/example_1.json");
       juan = new Character(new Position(0,0));
       key20 = level.getBlockAt("4|0");
       key21 = level.getBlockAt("4|1");
-      juan.addKey(20);
-      juanCanAccess20 = key20.canAccess(juan, level, new Position(4,0)),
+      door31 = level.getBlockAt("0|5");
+      juanCanAccess20 = key20.canAccess(juan, level, new Position(4,0));
       juanCanAccess21 = key21.canAccess(juan,level, new Position(4,1));
     });
 
-    it('A key turns into a normal free block after pick up', function(){
-        assert(juanCanAccess20);
-              console.log(juan._keys);
+    it('A character can acces to key blocks', function(){
+      assert(juanCanAccess21);
     });
 
-    it('A key turns into a normal free block after pick up', function(){
-        assert(!juanCanAccess21); //TODO: fix bug!
-              console.log(juan._keys);
+    it('Keys are counted after colliding', function(){
+      assert.equal(juan._keys[1],1);
+    });
+
+    it('The character loses a key when he opens a door', function(){
+      door31.canAccess(juan, level, new Position("0|5"));
+      assert.equal(juan._keys[1],0);
+    });
+
+    it('The character can open doors if he have keys', function(){
+      assert(door31.canAccess(juan, level, new Position("0|5")));
+    });
+
+    it('The character can\'t open doors if he doesn\'t have keys', function(){
+      juan._keys[1] = 0;
+      assert(!door31.canAccess(juan, level, new Position("0|5")));
     });
 });

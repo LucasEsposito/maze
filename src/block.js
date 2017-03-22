@@ -58,7 +58,6 @@ module.exports.Door = class Door extends Occupied { // id: 30..38
   }
 
   canAccess(character, level, position){
-    console.log(character._keys);
     if(character.usesKey(this.id - 10)){
       level.freeBlockAt(position);
       return true;

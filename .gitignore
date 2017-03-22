@@ -1,6 +1,9 @@
 # Dolphin folder properties
 .directory
 
+#Aptana
+.project
+
 # Logs
 logs
 *.log
