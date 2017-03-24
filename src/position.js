@@ -1,5 +1,5 @@
 "use strict";
-let extensions = require('./utils/extensions.js')
+let extensions = require('./utils/extensions.js');
 
 module.exports = class Position {
   constructor(x,y){

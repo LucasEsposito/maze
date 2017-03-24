@@ -1,9 +1,13 @@
 "use strict";
+let extensions = require('./utils/extensions.js');
 
 class Block { // abstract
   constructor(id) {
     this.id = id;
-    this.sprite = "../static/img/block/"+id+".png"
+  }
+
+  sprite(){
+    return relativeToAbsolutePath("../../static/img/block/" + id + ".png");
   }
 }
 
