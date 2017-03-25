@@ -6,7 +6,7 @@ class Block { // abstract
     this.id = id;
   }
 
-  sprite(){
+  spritePath(){
     return relativeToAbsolutePath("../../static/img/block/" + id + ".png");
   }
 }
